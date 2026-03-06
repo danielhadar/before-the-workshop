@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Frank+Ruhl+Libre:wght@300;700&display=swap" rel="stylesheet">
+<title>שאלון הכנה</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='13' fill='%23C4704B'/%3E%3Cline x1='100' y1='87' x2='98' y2='48' stroke='%23C4704B' stroke-width='14' opacity='0.7'/%3E%3Ccircle cx='97' cy='40' r='10' fill='%23C4704B'/%3E%3Cline x1='111' y1='93' x2='158' y2='52' stroke='%23C4704B' stroke-width='14' opacity='0.7'/%3E%3Ccircle cx='164' cy='46' r='11' fill='%23C4704B'/%3E%3Cline x1='113' y1='102' x2='162' y2='112' stroke='%23C4704B' stroke-width='14' opacity='0.7'/%3E%3Ccircle cx='168' cy='114' r='8' fill='%23C4704B'/%3E%3Cline x1='108' y1='111' x2='142' y2='162' stroke='%23C4704B' stroke-width='14' opacity='0.7'/%3E%3Ccircle cx='146' cy='168' r='9.5' fill='%23C4704B'/%3E%3Cline x1='91' y1='110' x2='52' y2='152' stroke='%23C4704B' stroke-width='14' opacity='0.7'/%3E%3Ccircle cx='46' cy='158' r='9' fill='%23C4704B'/%3E%3Cline x1='87' y1='98' x2='42' y2='78' stroke='%23C4704B' stroke-width='14' opacity='0.7'/%3E%3Ccircle cx='36' cy='74' r='10.5' fill='%23C4704B'/%3E%3C/svg%3E">
+<style>
+/* ====== RESET ====== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ====== VARIABLES ====== */
+:root {
+  --bg: #FAFAF7;
+  --text-primary: #2D2A24;
+  --text-secondary: #4A4740;
+  --text-muted: #8B8579;
+  --accent: #C4704B;
+  --accent-hover: #A85D3B;
+  --accent-bg: #F5F2EB;
+  --surface: #FFFFFF;
+  --border: #E8E4DC;
+  --success: #7EC87E;
+}
+
+/* ====== BASE ====== */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Alef', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-secondary);
+  background: var(--bg);
+  line-height: 1.75;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); }
+
+/* ====== LAYOUT ====== */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ====== PROGRESS NAV ====== */
+.progress-nav {
+  position: fixed;
+  top: 0; right: 0; left: 0;
+  z-index: 100;
+  background: rgba(250, 250, 247, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.progress-nav.visible { transform: translateY(0); }
+
+.progress-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.progress-inner::-webkit-scrollbar { display: none; }
+
+.nav-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-family: 'Frank Ruhl Libre', Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: none;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.nav-dot:hover { border-color: var(--accent); color: var(--accent); }
+.nav-dot.active { border-color: var(--accent); color: var(--surface); background: var(--accent); }
+.nav-dot.filled { border-color: var(--success); color: var(--success); background: rgba(126, 200, 126, 0.1); }
+.nav-dot.filled.active { background: var(--accent); color: var(--surface); border-color: var(--accent); }
+
+/* ====== HERO ====== */
+.hero {
+  padding: 100px 0 40px;
+  text-align: center;
+}
+
+.hero-mark {
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.hero-label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 5px 14px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.hero .subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.hero-meta svg {
+  width: 15px; height: 15px;
+  stroke: var(--text-muted);
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ====== DIVIDER ====== */
+.divider {
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  border: none;
+  margin: 40px auto;
+  border-radius: 2px;
+}
+
+/* ====== QUESTION CARDS ====== */
+.question {
+  padding: 8px 0 16px;
+}
+
+.question-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 26px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.question-card:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(196, 112, 75, 0.08);
+}
+
+.question-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.question-num {
+  font-family: 'Frank Ruhl Libre', Georgia, serif;
+  font-size: 44px;
+  font-weight: 300;
+  color: var(--accent);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.question-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.question-hint {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+/* ====== TEXTAREA ====== */
+.q-textarea {
+  width: 100%;
+  font-family: 'Alef', sans-serif;
+  font-size: 16px;
+  color: var(--text-primary);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  line-height: 1.7;
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.2s ease;
+  direction: rtl;
+}
+
+.q-textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.q-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ====== CHECKBOX LIST ====== */
+.q-checkboxes {
+  list-style: none;
+  margin: 0 0 8px;
+}
+
+.q-checkboxes li {
+  border-bottom: 1px solid var(--border);
+}
+
+.q-checkboxes li:last-child { border-bottom: none; }
+
+.q-checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.q-checkboxes label:hover { color: var(--text-primary); }
+
+.q-checkboxes input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-radius: 5px;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.q-checkboxes input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.q-checkboxes input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  right: 6px;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.q-other-input {
+  width: 100%;
+  font-family: 'Alef', sans-serif;
+  font-size: 15px;
+  color: var(--text-primary);
+  background: var(--bg);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0 12px;
+  margin-top: 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  direction: rtl;
+  transition: all 0.3s ease;
+}
+
+.q-other-input.visible {
+  border-color: var(--border);
+  padding: 8px 12px;
+  margin-top: 8px;
+  max-height: 50px;
+  opacity: 1;
+}
+
+.q-other-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.q-notice {
+  background: var(--accent-bg);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.q-notice strong { color: var(--text-primary); }
+
+/* ====== GENERATE BUTTON ====== */
+.generate-section {
+  text-align: center;
+  padding: 24px 0 16px;
+}
+
+.btn-generate {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 10px;
+  font-family: 'Alef', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn-generate:hover { background: var(--accent-hover); }
+.btn-generate:active { transform: scale(0.98); }
+
+.btn-generate svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ====== SUMMARY OUTPUT ====== */
+.summary-section {
+  display: none;
+  padding: 0 0 16px;
+}
+
+.summary-section.visible { display: block; }
+
+.summary-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.summary-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--accent-bg);
+}
+
+.summary-toolbar-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.summary-toolbar-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-copy, .btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: 'Alef', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-copy {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-copy:hover { background: var(--accent-hover); }
+
+.btn-copy.copied {
+  background: var(--success);
+}
+
+.btn-download {
+  background: none;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.btn-download:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-copy svg, .btn-download svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.summary-output {
+  padding: 20px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.summary-output pre {
+  font-family: 'Alef', sans-serif;
+  font-size: 15px;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.75;
+  direction: rtl;
+  margin: 0;
+}
+
+.summary-confirm {
+  text-align: center;
+  padding: 20px 0 0;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.summary-confirm strong { color: var(--text-primary); }
+
+/* ====== FOOTER ====== */
+footer {
+  text-align: center;
+  padding: 36px 0 24px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 600px) {
+  .hero { padding: 80px 0 32px; }
+  .hero h1 { font-size: 34px; }
+  .question-num { font-size: 36px; }
+  .question-header h2 { font-size: 20px; }
+  .question-card { padding: 20px 16px; }
+  .q-textarea { font-size: 15px; min-height: 90px; }
+  .btn-generate { font-size: 16px; padding: 12px 28px; }
+  .summary-output { padding: 16px; }
+  .summary-output pre { font-size: 14px; }
+  .nav-dot { width: 26px; height: 26px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== PROGRESS NAV ========== -->
+<nav class="progress-nav" id="progressNav">
+  <div class="progress-inner">
+    <a href="#q1" class="nav-dot" data-q="1">1</a>
+    <a href="#q2" class="nav-dot" data-q="2">2</a>
+    <a href="#q3" class="nav-dot" data-q="3">3</a>
+    <a href="#q4" class="nav-dot" data-q="4">4</a>
+    <a href="#q5" class="nav-dot" data-q="5">5</a>
+    <a href="#q6" class="nav-dot" data-q="6">6</a>
+    <a href="#q7" class="nav-dot" data-q="7">7</a>
+    <a href="#q8" class="nav-dot" data-q="8">8</a>
+    <a href="#q9" class="nav-dot" data-q="9">9</a>
+    <a href="#q10" class="nav-dot" data-q="10">10</a>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<header class="hero" id="hero">
+  <div class="container">
+    <svg class="hero-mark" width="44" height="44" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="13" fill="#C4704B"/>
+      <line x1="100" y1="87" x2="98" y2="48" stroke="#C4704B" stroke-width="3" opacity="0.65"/>
+      <circle cx="97" cy="40" r="10" fill="#C4704B"/>
+      <line x1="111" y1="93" x2="158" y2="52" stroke="#C4704B" stroke-width="3" opacity="0.65"/>
+      <circle cx="164" cy="46" r="11" fill="#C4704B"/>
+      <line x1="113" y1="102" x2="162" y2="112" stroke="#C4704B" stroke-width="3" opacity="0.65"/>
+      <circle cx="168" cy="114" r="8" fill="#C4704B"/>
+      <line x1="108" y1="111" x2="142" y2="162" stroke="#C4704B" stroke-width="3" opacity="0.65"/>
+      <circle cx="146" cy="168" r="9.5" fill="#C4704B"/>
+      <line x1="91" y1="110" x2="52" y2="152" stroke="#C4704B" stroke-width="3" opacity="0.65"/>
+      <circle cx="46" cy="158" r="9" fill="#C4704B"/>
+      <line x1="87" y1="98" x2="42" y2="78" stroke="#C4704B" stroke-width="3" opacity="0.65"/>
+      <circle cx="36" cy="74" r="10.5" fill="#C4704B"/>
+    </svg>
+    <span class="hero-label">לפני הסדנה</span>
+    <h1>שאלון הכנה</h1>
+    <p class="subtitle">10 שאלות. כל מה שתבנו בסדנה מתחיל מפה - אז ככל שתהיו יותר ספציפיים, ככה הצוות שתקבלו יבין אתכם טוב יותר.</p>
+    <span class="hero-meta">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span dir="ltr">15–20</span> דקות
+    </span>
+  </div>
+</header>
+
+<hr class="divider">
+
+<!-- ========== Q1 ========== -->
+<section class="question" id="q1">
+  <div class="container">
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">1</span>
+        <h2>מה אתם עושים?</h2>
+      </div>
+      <p class="question-hint">תארו את העסק, המוצר או הפרויקט שלכם במשפט אחד, בלי לחשוב על זה יותר מדי</p>
+      <textarea class="q-textarea" data-q="1" rows="3" placeholder="למשל: ״סטודיו לעיצוב גרפי למסעדות״, ״בונה אפליקציה לשיתוף מסלולי טיולים״ או ״בונה קורס אונליין לליקוט פטריות בר״"></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Q2 ========== -->
+<section class="question" id="q2">
+  <div class="container">
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">2</span>
+        <h2>מה סוג העבודה?</h2>
+      </div>
+      <p class="question-hint">סמנו מה שרלוונטי, או תכתבו משלכם</p>
+      <ul class="q-checkboxes" data-q="2">
+        <li><label><input type="checkbox" value="בניית תוכנה"><span>בניית תוכנה</span></label></li>
+        <li><label><input type="checkbox" value="בניית מותג ו/או כתיבת תוכן (פוסטים, מאמרים, ניוזלטר)"><span>בניית מותג ו/או כתיבת תוכן (פוסטים, מאמרים, ניוזלטר)</span></label></li>
+        <li><label><input type="checkbox" value="מחקר וניתוח נתונים"><span>מחקר וניתוח נתונים</span></label></li>
+        <li><label><input type="checkbox" value="ניהול פרויקטים ותכנון"><span>ניהול פרויקטים ותכנון</span></label></li>
+        <li><label><input type="checkbox" value="תפעול עסקי (תהליכים, אוטומציה, לעשות סדר)"><span>תפעול עסקי (תהליכים, אוטומציה, לעשות סדר)</span></label></li>
+        <li>
+          <label><input type="checkbox" value="other" class="other-trigger"><span>משהו אחר</span></label>
+          <input type="text" class="q-other-input" data-other="2" placeholder="מה למשל?">
+        </li>
+      </ul>
+      <div class="q-notice"><strong>רק שתדעו:</strong> אפשר לסמן כמה. בסדנה נתמקד בכיוון אחד, אז שווה לבחור פרויקט שאפשר לסגור</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Q3 ========== -->
+<section class="question" id="q3">
+  <div class="container">
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">3</span>
+        <h2>מה המצב הנוכחי של הפרויקט?</h2>
+      </div>
+      <p class="question-hint">יש כבר אתר? חשבון אינסטגרם עם תוכן? קוד שכתבתם? מסמכים עם רעיונות? או שמתחילים מאפס?</p>
+      <textarea class="q-textarea" data-q="3" rows="4" placeholder="למשל: ״רק רעיון על מפית״, ״יש אתר ישן שצריך שדרוג״ או ״50 לקוחות ואין מערכת״"></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Q4 ========== -->
+<section class="question" id="q4">
+  <div class="container">
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">4</span>
+        <h2>מה תוקע את הפרויקט הזה?</h2>
+      </div>
+      <p class="question-hint">הדבר שבגללו הפרויקט לא מתקדם כמו שהייתם רוצים - מה שאתם דוחים, מה שלא ברור, מה שמרגיש תקוע</p>
+      <textarea class="q-textarea" data-q="4" rows="4" placeholder="למשל: ״הכל בראש ושום דבר על הנייר״ או ״אין לי זמן לשבת על זה ברצינות״"></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Q5 ========== -->
+<section class="question" id="q5">
+  <div class="container">
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">5</span>
+        <h2>מתי תגידו "זה עובד"?</h2>
+      </div>
+      <p class="question-hint">תארו תוצאה מוחשית, לא חזון ערטילאי</p>
+      <textarea class="q-textarea" data-q="5" rows="3" placeholder="למשל: ״לקוח ראשון שמשלם״, ״אתר שאפשר לשלוח ללקוחות״ או ״3 פוסטים בשבוע שנשמעים כמוני״"></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Q6 ========== -->
+<section class="question" id="q6">
+  <div class="container">
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">6</span>
+        <h2>מי קהל היעד שלכם?</h2>
+      </div>
+      <p class="question-hint">היו ספציפיים ככל האפשר</p>
+      <textarea class="q-textarea" data-q="6" rows="3" placeholder="למשל: ״הורים לילדים בגיל בית ספר״, ״פרילנסרים בתחילת הדרך״ או ״בעלי מסעדות״"></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Q7 ========== -->
+<section class="question" id="q7">
+  <div class="container">
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">7</span>
+        <h2>איך אתם אוהבים לעבוד?</h2>
+      </div>
+      <ul class="q-checkboxes" data-q="7">
+        <li><label><input type="checkbox" value="לזוז מהר, לשחרר, ללטש אחר כך"><span>לזוז מהר, לשחרר, ללטש אחר כך</span></label></li>
+        <li><label><input type="checkbox" value="לתכנן הכל לפני שנוגעים"><span>לתכנן הכל לפני שנוגעים</span></label></li>
+        <li><label><input type="checkbox" value="שמישהו יאתגר לנו את החשיבה"><span>שמישהו יאתגר לנו את החשיבה</span></label></li>
+        <li><label><input type="checkbox" value="שמישהו יעשה מה שאנחנו אומרים, חלק ובלי שאלות"><span>שמישהו יעשה מה שאנחנו אומרים, חלק ובלי שאלות</span></label></li>
+        <li>
+          <label><input type="checkbox" value="other" class="other-trigger"><span>משהו אחר</span></label>
+          <input type="text" class="q-other-input" data-other="7" placeholder="מה למשל?">
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Q8 ========== -->
+<section class="question" id="q8">
+  <div class="container">
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">8</span>
+        <h2>מה נחשב טוב בעיניכם?</h2>
+      </div>
+      <p class="question-hint">תנו דוגמאות לאנשים, מותגים, או עבודות שאתם מעריכים - כאלה שהסגנון, הגישה, או האיכות שלהם מייצגים משהו שהייתם רוצים שהפרויקט שלכם ירגיש כמוהו. זה יכול להיות כמעט כל דבר</p>
+      <textarea class="q-textarea" data-q="8" rows="4" placeholder="למשל: ״חוויית המשתמש של דואלינגו״, ״הקופי של ׳כאן 11׳״ או ״הפוסטים של איה כורם בפייסבוק״"></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Q9 ========== -->
+<section class="question" id="q9">
+  <div class="container">
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">9</span>
+        <h2>מה אתם לא?</h2>
+      </div>
+      <p class="question-hint">תנו דוגמאות לדברים שהמותג או הפרויקט שלכם לעולם לא יהיה - סגנונות, גישות, או תכונות שמגרדות לכם</p>
+      <textarea class="q-textarea" data-q="9" rows="3" placeholder="למשל: ״פורמלי מדי״, ״שיווקי-אגרסיבי״ או ״סרקסטי״"></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Q10 ========== -->
+<section class="question" id="q10">
+  <div class="container">
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">10</span>
+        <h2>עוד משהו שחשוב לכם?</h2>
+      </div>
+      <p class="question-hint">קווים אדומים, העדפות, מגבלות - כל דבר שיעזור לנו להתאים לכם את הכלים</p>
+      <textarea class="q-textarea" data-q="10" rows="3" placeholder=""></textarea>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ========== GENERATE ========== -->
+<section class="generate-section">
+  <div class="container">
+    <button class="btn-generate" id="generateBtn">
+      סיימתי
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ========== SUMMARY ========== -->
+<section class="summary-section" id="summarySection">
+  <div class="container">
+    <div class="summary-card">
+      <div class="summary-toolbar">
+        <span class="summary-toolbar-title">הטקסט שלכם מוכן</span>
+        <div class="summary-toolbar-buttons">
+          <button class="btn-copy" id="copyBtn">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            העתקה
+          </button>
+          <button class="btn-download" id="downloadBtn">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            הורדה
+          </button>
+        </div>
+      </div>
+      <div class="summary-output">
+        <pre id="summaryText"></pre>
+      </div>
+    </div>
+    <p class="summary-confirm"><strong>העתיקו את הטקסט ושמרו אצלכם.</strong> בסדנה נשתמש בו.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">&copy; דניאל הדר 2026</div>
+</footer>
+
+<!-- ========== JS ========== -->
+<script>
+// ---- "Other" checkbox toggles ----
+document.querySelectorAll('.other-trigger').forEach(cb => {
+  cb.addEventListener('change', () => {
+    const li = cb.closest('li');
+    const input = li.querySelector('.q-other-input');
+    if (input) {
+      input.classList.toggle('visible', cb.checked);
+      if (cb.checked) setTimeout(() => input.focus(), 300);
+      else input.value = '';
+    }
+  });
+});
+
+// ---- Progress Nav ----
+const nav = document.getElementById('progressNav');
+const hero = document.getElementById('hero');
+const questions = document.querySelectorAll('.question[id]');
+const navDots = document.querySelectorAll('.nav-dot[data-q]');
+
+const heroObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    nav.classList.toggle('visible', !entry.isIntersecting);
+  });
+}, { threshold: 0 });
+
+heroObserver.observe(hero);
+
+const sectionObserver = new IntersectionObserver(entries => {
+  // Skip if user is at page bottom (handled by scroll listener)
+  const atBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100;
+  if (atBottom) return;
+
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navDots.forEach(d => d.classList.remove('active'));
+      const dot = document.querySelector(`.nav-dot[data-q="${entry.target.id.replace('q', '')}"]`);
+      if (dot) dot.classList.add('active');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '-60px 0px -35% 0px' });
+
+questions.forEach(q => sectionObserver.observe(q));
+
+// When scrolled to bottom, always highlight the last visible question
+window.addEventListener('scroll', () => {
+  const atBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100;
+  if (atBottom) {
+    navDots.forEach(d => d.classList.remove('active'));
+    const last = document.querySelector('.nav-dot[data-q="10"]');
+    if (last) last.classList.add('active');
+  }
+}, { passive: true });
+
+navDots.forEach(dot => {
+  dot.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(dot.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// ---- Track filled questions (nav dots) ----
+function updateFilledDots() {
+  for (let i = 1; i <= 10; i++) {
+    const dot = document.querySelector(`.nav-dot[data-q="${i}"]`);
+    if (!dot) continue;
+    const filled = isQuestionFilled(i);
+    dot.classList.toggle('filled', filled);
+  }
+}
+
+function isQuestionFilled(num) {
+  const section = document.getElementById('q' + num);
+  if (!section) return false;
+
+  const textarea = section.querySelector('.q-textarea');
+  if (textarea) return textarea.value.trim().length > 0;
+
+  const checkboxes = section.querySelectorAll('.q-checkboxes input[type="checkbox"]');
+  return [...checkboxes].some(cb => cb.checked);
+}
+
+// Listen for input changes
+document.querySelectorAll('.q-textarea').forEach(ta => {
+  ta.addEventListener('input', updateFilledDots);
+});
+document.querySelectorAll('.q-checkboxes input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', updateFilledDots);
+});
+
+// ---- Generate Summary ----
+const generateBtn = document.getElementById('generateBtn');
+const summarySection = document.getElementById('summarySection');
+const summaryText = document.getElementById('summaryText');
+
+const questionTitles = {
+  1: 'מה אתם עושים?',
+  2: 'מה סוג העבודה?',
+  3: 'מה המצב הנוכחי של הפרויקט?',
+  4: 'מה תוקע את הפרויקט הזה?',
+  5: 'מתי תגידו "זה עובד"?',
+  6: 'מי קהל היעד שלכם?',
+  7: 'איך אתם אוהבים לעבוד?',
+  8: 'מה נחשב טוב בעיניכם?',
+  9: 'מה אתם לא?',
+  10: 'עוד משהו שחשוב לכם?'
+};
+
+generateBtn.addEventListener('click', () => {
+  let md = '';
+
+  for (let i = 1; i <= 10; i++) {
+    md += `## ${i}. ${questionTitles[i]}\n`;
+    const section = document.getElementById('q' + i);
+    if (!section) { md += '(לא מולא)\n\n'; continue; }
+
+    const textarea = section.querySelector('.q-textarea');
+    if (textarea) {
+      const val = textarea.value.trim();
+      md += (val || '(לא מולא)') + '\n\n';
+      continue;
+    }
+
+    const checkboxList = section.querySelector('.q-checkboxes');
+    if (checkboxList) {
+      const checked = [...checkboxList.querySelectorAll('input[type="checkbox"]:checked')];
+      if (checked.length === 0) {
+        md += '(לא מולא)\n\n';
+        continue;
+      }
+      checked.forEach(cb => {
+        if (cb.classList.contains('other-trigger')) {
+          const otherInput = cb.closest('li').querySelector('.q-other-input');
+          const otherVal = otherInput ? otherInput.value.trim() : '';
+          if (otherVal) md += `- ${otherVal}\n`;
+          else md += `- אחר\n`;
+        } else {
+          md += `- ${cb.value}\n`;
+        }
+      });
+      md += '\n';
+    }
+  }
+
+  summaryText.textContent = md.trim();
+  summarySection.classList.add('visible');
+  setTimeout(() => {
+    summarySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+});
+
+// ---- Copy + Confetti ----
+const copyBtn = document.getElementById('copyBtn');
+
+copyBtn.addEventListener('click', () => {
+  const text = summaryText.textContent;
+
+  function onCopied() {
+    copyBtn.classList.add('copied');
+    copyBtn.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> הועתק!';
+    setTimeout(() => {
+      copyBtn.classList.remove('copied');
+      copyBtn.innerHTML = '<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> העתקה';
+    }, 2500);
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(onCopied);
+  } else {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    onCopied();
+  }
+});
+
+// ---- Download as .md ----
+const downloadBtn = document.getElementById('downloadBtn');
+
+downloadBtn.addEventListener('click', () => {
+  const text = summaryText.textContent;
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'questionnaire.md';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+
+</script>
+
+</body>
+</html>

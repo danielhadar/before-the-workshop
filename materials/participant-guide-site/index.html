@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="נרשמתם, מעולה. יש כמה דברים שצריך לסדר לפני שנפגש.">
+<meta property="og:title" content="הכנה לסדנה">
+<meta property="og:description" content="נרשמתם, מעולה. יש כמה דברים שצריך לסדר לפני שנפגש.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Frank+Ruhl+Libre:wght@300;700&display=swap" rel="stylesheet">
+<title>הכנה לסדנה</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='13' fill='%23C4704B'/%3E%3Cline x1='100' y1='87' x2='98' y2='48' stroke='%23C4704B' stroke-width='14' opacity='0.7'/%3E%3Ccircle cx='97' cy='40' r='10' fill='%23C4704B'/%3E%3Cline x1='111' y1='93' x2='158' y2='52' stroke='%23C4704B' stroke-width='14' opacity='0.7'/%3E%3Ccircle cx='164' cy='46' r='11' fill='%23C4704B'/%3E%3Cline x1='113' y1='102' x2='162' y2='112' stroke='%23C4704B' stroke-width='14' opacity='0.7'/%3E%3Ccircle cx='168' cy='114' r='8' fill='%23C4704B'/%3E%3Cline x1='108' y1='111' x2='142' y2='162' stroke='%23C4704B' stroke-width='14' opacity='0.7'/%3E%3Ccircle cx='146' cy='168' r='9.5' fill='%23C4704B'/%3E%3Cline x1='91' y1='110' x2='52' y2='152' stroke='%23C4704B' stroke-width='14' opacity='0.7'/%3E%3Ccircle cx='46' cy='158' r='9' fill='%23C4704B'/%3E%3Cline x1='87' y1='98' x2='42' y2='78' stroke='%23C4704B' stroke-width='14' opacity='0.7'/%3E%3Ccircle cx='36' cy='74' r='10.5' fill='%23C4704B'/%3E%3C/svg%3E">
+<style>
+/* ====== RESET ====== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ====== VARIABLES ====== */
+:root {
+  --bg: #FAFAF7;
+  --text-primary: #2D2A24;
+  --text-secondary: #4A4740;
+  --text-muted: #8B8579;
+  --accent: #C4704B;
+  --accent-hover: #A85D3B;
+  --accent-bg: #F5F2EB;
+  --surface: #FFFFFF;
+  --border: #E8E4DC;
+}
+
+/* ====== BASE ====== */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Alef', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-secondary);
+  background: var(--bg);
+  line-height: 1.75;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); }
+
+/* ====== LAYOUT ====== */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ====== PROGRESS NAV ====== */
+.progress-nav {
+  position: fixed;
+  top: 0; right: 0; left: 0;
+  z-index: 100;
+  background: rgba(250, 250, 247, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.progress-nav.visible { transform: translateY(0); }
+
+.progress-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.progress-inner::-webkit-scrollbar { display: none; }
+
+.nav-link {
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: none;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover { color: var(--text-primary); background: var(--accent-bg); }
+.nav-link.active { color: var(--accent); background: var(--accent-bg); }
+.nav-sep { color: var(--border); font-size: 10px; flex-shrink: 0; }
+
+/* ====== HERO ====== */
+.hero {
+  padding: 100px 0 40px;
+  text-align: center;
+}
+
+.hero-mark {
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.hero-label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 5px 14px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.hero .subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.hero-meta svg {
+  width: 15px; height: 15px;
+  stroke: var(--text-muted);
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ====== DIVIDER ====== */
+.divider {
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  border: none;
+  margin: 40px auto;
+  border-radius: 2px;
+}
+
+/* ====== SECTIONS ====== */
+.section { padding: 8px 0 48px; }
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.section-num {
+  font-family: 'Frank Ruhl Libre', Georgia, serif;
+  font-size: 44px;
+  font-weight: 300;
+  color: var(--accent);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.section-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.section-intro { margin-bottom: 24px; }
+
+/* ====== GLOBAL OS TOGGLE ====== */
+.os-toggle-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.os-toggle {
+  display: inline-flex;
+  background: var(--accent-bg);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.os-toggle button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 32px;
+  font-family: 'Alef', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.os-toggle button .os-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.os-toggle button svg.os-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: -1px;
+}
+
+.os-toggle button.active {
+  color: var(--text-primary);
+  background: var(--surface);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.os-toggle button:hover:not(.active) { color: var(--text-primary); }
+
+/* OS-specific content visibility */
+body[data-os="mac"] .for-win { display: none; }
+body[data-os="windows"] .for-mac { display: none; }
+
+/* ====== BLOCKS ====== */
+.block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.block:hover { border-color: #D5CFC6; }
+
+.block-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.block-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--accent-bg);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.block-info { flex: 1; }
+
+.block-info h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.block-info p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 1px;
+}
+
+.block-chevron {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.block.open .block-chevron { transform: rotate(180deg); }
+
+.block-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.block.open .block-body { grid-template-rows: 1fr; }
+
+.block-body-inner {
+  overflow: hidden;
+}
+
+.block-content {
+  padding: 0 22px 22px;
+  border-top: 1px solid var(--border);
+}
+
+/* ====== STEPS ====== */
+.steps {
+  list-style: none;
+  margin: 16px 0 0;
+}
+
+.steps li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+  align-items: flex-start;
+}
+
+.steps li:last-child { margin-bottom: 0; }
+
+.step-num {
+  font-family: 'Frank Ruhl Libre', Georgia, serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--accent);
+  opacity: 0.4;
+  line-height: 1.65;
+  min-width: 24px;
+  flex-shrink: 0;
+}
+
+.step-content { flex: 1; }
+.step-content p { margin-bottom: 4px; }
+.step-content p:last-child { margin-bottom: 0; }
+
+/* ====== NOTICES ====== */
+.notice {
+  background: var(--accent-bg);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 14px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.7;
+}
+
+.notice-icon { font-size: 15px; flex-shrink: 0; margin-top: 3px; }
+.notice strong { color: var(--text-primary); }
+.notice a { color: var(--accent); font-weight: 700; text-decoration: none; }
+.notice a:hover { text-decoration: underline; }
+
+.warning {
+  background: var(--accent-bg);
+  border-right: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.warning strong { display: block; margin-bottom: 2px; color: var(--text-primary); }
+
+/* ====== TIP ====== */
+.tip {
+  background: var(--accent-bg);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 14px;
+  line-height: 1.65;
+}
+
+.tip strong { color: var(--text-primary); }
+
+/* ====== CODE ====== */
+code {
+  font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+  background: var(--accent-bg);
+  color: var(--accent);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  direction: ltr;
+  display: inline-block;
+}
+
+.code-block-wrap {
+  position: relative;
+  margin-top: 10px;
+}
+
+.code-block {
+  font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+  background: #1D1C1A;
+  color: #D4D0C8;
+  padding: 16px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre;
+  overflow-x: auto;
+  display: block;
+  margin: 0;
+}
+
+.code-block .hl { color: #E5A07A; }
+
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+  color: #9B9690;
+  font-size: 13px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.code-block-wrap:hover .copy-btn { opacity: 1; }
+
+.copy-btn:hover {
+  background: rgba(255,255,255,0.14);
+  color: #D4D0C8;
+}
+
+.copy-btn.copied {
+  opacity: 1;
+  color: #7EC87E;
+  border-color: rgba(126,200,126,0.3);
+  background: rgba(126,200,126,0.1);
+}
+
+.copy-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ====== BUTTONS ====== */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 9px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: 'Alef', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover { background: var(--accent-hover); }
+.btn:active { transform: scale(0.98); }
+
+.link {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.link:hover { border-bottom-color: var(--accent); }
+
+/* ====== CARD ====== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  margin: 24px 0;
+}
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+/* ====== TABLE ====== */
+.trouble-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.trouble-table th {
+  text-align: right;
+  padding: 8px 10px;
+  font-weight: 700;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border);
+}
+
+.trouble-table td {
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.trouble-table tr:last-child td { border-bottom: none; }
+
+.trouble-table td:first-child {
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  width: 35%;
+}
+
+/* ====== COLLAPSIBLE ====== */
+.collapsible-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.collapsible-header svg {
+  width: 16px; height: 16px;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.card.open .collapsible-header svg { transform: rotate(180deg); }
+
+.collapsible-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.card.open .collapsible-body { grid-template-rows: 1fr; }
+.collapsible-body > div { overflow: hidden; }
+
+/* ====== CHECKLIST ====== */
+.checklist {
+  list-style: none;
+  margin: 14px 0;
+}
+
+.checklist li {
+  padding: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.checklist li:last-child { border-bottom: none; }
+
+.checklist label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.checklist input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.checklist input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.checklist input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checklist input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* ====== INLINE VERIFY CHECKBOX ====== */
+.verify-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: var(--accent-bg);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  color: var(--text-secondary);
+  transition: all 0.25s ease;
+}
+.verify-check:hover { background: color-mix(in srgb, var(--accent) 8%, var(--accent-bg)); }
+.verify-check input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.verify-check input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.verify-check input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.verify-check:has(input:checked) span {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ====== CLOSING ====== */
+.closing {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 36px 28px;
+  margin: 8px 0 40px;
+  text-align: center;
+}
+
+.closing p {
+  font-size: 17px;
+  line-height: 1.75;
+  max-width: 500px;
+  margin: 0 auto 10px;
+}
+
+.closing p:last-child { margin-bottom: 0; }
+.closing .hl { color: var(--text-primary); font-weight: 700; }
+
+.closing .sub {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-top: 16px;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  text-align: center;
+  padding: 36px 0 24px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* ====== MOBILE-ONLY ====== */
+.mobile-only { display: none; }
+@media (max-width: 768px) { .mobile-only { display: flex; } }
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 600px) {
+  .hero { padding: 90px 0 36px; }
+  .hero h1 { font-size: 34px; }
+  .section-num { font-size: 36px; }
+  .section-header h2 { font-size: 24px; }
+  .os-toggle button { padding: 10px 24px; font-size: 15px; }
+  .block-header { padding: 14px 16px; gap: 12px; }
+  .block-icon { width: 36px; height: 36px; font-size: 16px; }
+  .block-info h3 { font-size: 16px; }
+  .block-content { padding: 0 16px 18px; }
+  .step-num { font-size: 16px; min-width: 22px; }
+  .card { padding: 18px 16px; }
+  .closing { padding: 28px 20px; }
+  .nav-link { padding: 5px 8px; font-size: 12px; }
+  .trouble-table td:first-child { white-space: normal; }
+  .trouble-table th, .trouble-table td { padding: 8px 6px; font-size: 14px; }
+  .code-block { font-size: 12px; padding: 14px 14px; }
+}
+</style>
+</head>
+<body data-os="mac">
+
+<!-- ========== PROGRESS NAV ========== -->
+<nav class="progress-nav" id="progressNav">
+  <div class="progress-inner">
+    <a href="#installations" class="nav-link" data-section="installations">התקנות</a>
+    <span class="nav-sep">·</span>
+    <a href="#test" class="nav-link" data-section="test">בדיקה</a>
+    <span class="nav-sep">·</span>
+    <a href="#skeleton" class="nav-link" data-section="skeleton">שלד</a>
+    <span class="nav-sep">·</span>
+    <a href="#questionnaire" class="nav-link" data-section="questionnaire">שאלון</a>
+    <span class="nav-sep">·</span>
+    <a href="#materials" class="nav-link" data-section="materials">חומרים</a>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<header class="hero" id="hero">
+  <div class="container">
+    <svg class="hero-mark" width="44" height="44" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="13" fill="#C4704B"/>
+      <line x1="100" y1="87" x2="98" y2="48" stroke="#C4704B" stroke-width="3" opacity="0.65"/>
+      <circle cx="97" cy="40" r="10" fill="#C4704B"/>
+      <line x1="111" y1="93" x2="158" y2="52" stroke="#C4704B" stroke-width="3" opacity="0.65"/>
+      <circle cx="164" cy="46" r="11" fill="#C4704B"/>
+      <line x1="113" y1="102" x2="162" y2="112" stroke="#C4704B" stroke-width="3" opacity="0.65"/>
+      <circle cx="168" cy="114" r="8" fill="#C4704B"/>
+      <line x1="108" y1="111" x2="142" y2="162" stroke="#C4704B" stroke-width="3" opacity="0.65"/>
+      <circle cx="146" cy="168" r="9.5" fill="#C4704B"/>
+      <line x1="91" y1="110" x2="52" y2="152" stroke="#C4704B" stroke-width="3" opacity="0.65"/>
+      <circle cx="46" cy="158" r="9" fill="#C4704B"/>
+      <line x1="87" y1="98" x2="42" y2="78" stroke="#C4704B" stroke-width="3" opacity="0.65"/>
+      <circle cx="36" cy="74" r="10.5" fill="#C4704B"/>
+    </svg>
+    <span class="hero-label">לפני הסדנה</span>
+    <h1>הכנה לסדנה</h1>
+    <p class="subtitle">נרשמתם, מעולה. יש כמה דברים שצריך לסדר לפני שנפגש — בסדנה אנחנו מתחילים לבנות מהרגע הראשון, אז אל תשאירו את זה לרגע האחרון.</p>
+    <span class="hero-meta">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span dir="ltr">30–45</span> דקות
+    </span>
+  </div>
+</header>
+
+<hr class="divider">
+
+<!-- ========== 1. INSTALLATIONS ========== -->
+<section class="section" id="installations">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">1</span>
+      <h2>התקנות</h2>
+    </div>
+
+    <div class="notice mobile-only">
+      <span class="notice-icon">💻</span>
+      <div><strong>חשוב</strong> — כל זה עובד רק על מחשב (Mac או Windows). לא טלפון, לא טאבלט. תחזרו לדף הזה מהמחשב.</div>
+    </div>
+
+    <div class="os-toggle-wrap">
+      <div class="os-toggle">
+        <button class="active" data-os="mac"><svg class="os-icon" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-27.1-46.8-42-83.2-44.8-35.2-2.8-73.7 20.4-87.9 20.4-15 0-49.4-19.7-74.4-19.7C63.1 140.6 0 185 0 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-62.1 24-72.5-24 1.4-52 16.4-68 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 50-11.4 69.6-34.3z"/></svg> Mac</button>
+        <button data-os="windows"><svg class="os-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg> Windows</button>
+      </div>
+    </div>
+
+    <!-- ===== BLOCK: Claude ===== -->
+    <div class="block open" id="block-claude">
+      <div class="block-header">
+        <div class="block-icon">⌘</div>
+        <div class="block-info">
+          <h3>Claude</h3>
+          <p>קלוד חיים שלנו.</p>
+        </div>
+        <svg class="block-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="block-body"><div class="block-body-inner"><div class="block-content">
+        <ol class="steps">
+          <!-- Mac -->
+          <li class="for-mac">
+            <span class="step-num">1</span>
+            <div class="step-content">
+              <p><strong>הורידו את Claude</strong></p>
+              <a href="https://claude.ai/download" class="btn" style="margin-top: 8px;" target="_blank">להורדה ←</a>
+            </div>
+          </li>
+          <li class="for-mac">
+            <span class="step-num">2</span>
+            <div class="step-content">
+              <p><strong>התקינו</strong></p>
+              <p>פתחו את הקובץ, גררו לתיקיית Applications ופתחו.</p>
+              <p>פתחו את האפליקציה פעם אחת וסגרו — זה יוצר את קובץ ההגדרות.</p>
+            </div>
+          </li>
+
+          <!-- Windows -->
+          <li class="for-win">
+            <span class="step-num">1</span>
+            <div class="step-content">
+              <p><strong>הורידו את Claude</strong></p>
+              <p>בחרו Windows (לא "Windows arm64")</p>
+              <a href="https://claude.ai/download" class="btn" style="margin-top: 8px;" target="_blank">להורדה ←</a>
+            </div>
+          </li>
+          <li class="for-win">
+            <span class="step-num">2</span>
+            <div class="step-content">
+              <p><strong>התקינו</strong></p>
+              <p>התקינו ופתחו. אם מופיעה שגיאת הרשאה — לחיצה ימנית על קובץ ההתקנה ← <strong>Run as administrator</strong>.</p>
+              <p>פתחו את האפליקציה פעם אחת וסגרו — זה יוצר את קובץ ההגדרות.</p>
+            </div>
+          </li>
+
+          <li>
+            <span class="step-num">3</span>
+            <div class="step-content">
+              <p><strong>הירשמו למנוי Claude Pro</strong></p>
+              <p>בסדנה תהיו חייבים מנוי פעיל — בלי זה קלוד לא עובד. <span dir="ltr">$20</span> לחודש, Pro יספיק לכם לשלב הזה. אל דאגה, אתם תחרשו אותו אחרי הסדנה. <a href="https://claude.ai/upgrade" target="_blank" rel="noopener" style="color: var(--accent);">לחצו כאן</a>.</p>
+            </div>
+          </li>
+        </ol>
+      </div></div></div>
+    </div>
+
+    <!-- ===== BLOCK: Obsidian ===== -->
+    <div class="block" id="block-obsidian">
+      <div class="block-header">
+        <div class="block-icon">◆</div>
+        <div class="block-info">
+          <h3>Obsidian</h3>
+          <p>אפליקציה חינמית לצפייה בקבצים. דרכה תראו מה קלוד עושה בזמן אמת.</p>
+        </div>
+        <svg class="block-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="block-body"><div class="block-body-inner"><div class="block-content">
+        <ol class="steps">
+          <li>
+            <span class="step-num">1</span>
+            <div class="step-content">
+              <p><strong>הורידו והתקינו</strong></p>
+              <a href="https://obsidian.md/download" class="btn" style="margin-top: 4px;" target="_blank">להורדה ←</a>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <div class="step-content">
+              <p><strong>צרו Vault חדש</strong></p>
+              <p>פתחו את Obsidian ולחצו <strong>"Create new vault"</strong></p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <div class="step-content">
+              <p><strong>תנו שם</strong></p>
+              <p><strong>באנגלית בלבד</strong>, בלי רווחים. לדוגמה: <code>my-workspace</code></p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <div class="step-content">
+              <p><strong>בחרו מיקום</strong></p>
+              <p>לחצו <strong>"Location"</strong> ← <strong>"Browse"</strong> ← בחרו <strong>Documents</strong></p>
+              <div class="notice for-mac" style="margin: 10px 0 0;">
+                <span class="notice-icon">⚠️</span>
+                <div><strong>חשוב — לא לשמור ב-iCloud Drive או ב-Desktop</strong> — שניהם מסונכרנים אוטומטית לענן וזה יכול לעשות צרות אח״כ. שמרו רק ב-Documents.</div>
+              </div>
+              <div class="notice for-win" style="margin: 10px 0 0;">
+                <span class="notice-icon">⚠️</span>
+                <div><strong>חשוב — לא לשמור ב-OneDrive / Google Drive / Dropbox</strong> — שמרו רק ב-Documents המקומי.</div>
+              </div>
+            </div>
+          </li>
+        </ol>
+        <div class="tip">
+          רשמו את הנתיב של התיקייה — תצטרכו אותו בהמשך.<br>
+          <span class="for-mac"><strong>Mac:</strong> לחיצה ימנית על התיקייה ← Get Info ← העתיקו את הנתיב</span>
+          <span class="for-win"><strong>Windows:</strong> פתחו את התיקייה, לחצו על שורת הכתובת למעלה</span>
+        </div>
+      </div></div></div>
+    </div>
+
+    <!-- ===== BLOCK: Git + Node.js ===== -->
+    <div class="block" id="block-devtools">
+      <div class="block-header">
+        <div class="block-icon">⚙</div>
+        <div class="block-info">
+          <h3>כלי רקע</h3>
+          <p>Git ו-Node.js — קלוד צריך אותם כדי לעבוד</p>
+        </div>
+        <svg class="block-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="block-body"><div class="block-body-inner"><div class="block-content">
+
+        <!-- Mac -->
+        <div class="for-mac">
+          <ol class="steps">
+            <li>
+              <span class="step-num">1</span>
+              <div class="step-content">
+                <p><strong>פתחו Terminal</strong></p>
+                <p>Cmd+Space ← הקלידו Terminal ← Enter</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <div class="step-content">
+                <p><strong>בדקו Git</strong></p>
+                <p>הקלידו <code>git --version</code> ולחצו Enter</p>
+                <p>אם נפתח חלון Xcode — לחצו <strong>Install</strong> וחכו שיסיים</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <div class="step-content">
+                <p><strong>בדקו Node.js</strong></p>
+                <p>הקלידו <code>node --version</code> ולחצו Enter</p>
+                <p>רואים מספר כמו <code>v18.x.x</code> או יותר? מעולה. אם לא — הורידו מ-<a href="https://nodejs.org" class="link" target="_blank">nodejs.org</a> (בחרו LTS)</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Windows -->
+        <div class="for-win">
+          <ol class="steps">
+            <li>
+              <span class="step-num">1</span>
+              <div class="step-content">
+                <p><strong>פתחו Command Prompt</strong></p>
+                <p>Win+R ← הקלידו cmd ← Enter</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <div class="step-content">
+                <p><strong>בדקו Git</strong></p>
+                <p>הקלידו <code>git --version</code> ולחצו Enter</p>
+                <p>אם לא עובד — הורידו מ-<a href="https://git-scm.com/download/win" class="link" target="_blank">git-scm.com</a> והתקינו</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <div class="step-content">
+                <p><strong>בדקו Node.js</strong></p>
+                <p>הקלידו <code>node --version</code> ולחצו Enter</p>
+                <p>רואים מספר כמו <code>v18.x.x</code> או יותר? מעולה. אם לא — הורידו מ-<a href="https://nodejs.org" class="link" target="_blank">nodejs.org</a> (בחרו LTS)</p>
+              </div>
+            </li>
+          </ol>
+          <div class="notice" style="margin-top: 10px;">
+            <span class="notice-icon">💡</span>
+            <div>אחרי כל התקנה — סגרו את Command Prompt ופתחו מחדש</div>
+          </div>
+        </div>
+
+      </div></div></div>
+    </div>
+
+    <!-- ===== BLOCK: Connection ===== -->
+    <div class="block" id="block-connection">
+      <div class="block-header">
+        <div class="block-icon">🔗</div>
+        <div class="block-info">
+          <h3>חיבור</h3>
+          <p>לגרום לקלוד לראות את הקבצים שלכם ב-Obsidian</p>
+        </div>
+        <svg class="block-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="block-body"><div class="block-body-inner"><div class="block-content">
+
+        <!-- Mac -->
+        <div class="for-mac">
+          <ol class="steps">
+            <li>
+              <span class="step-num">1</span>
+              <div class="step-content">
+                <p><strong>מצאו את קובץ ההגדרות</strong></p>
+                <p>פתחו Finder ← לחצו Cmd+Shift+G ← הקלידו:</p>
+                <code>~/Library/Application Support/Claude</code>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <div class="step-content">
+                <p><strong>פתחו לעריכה</strong></p>
+                <p>מצאו קובץ בשם <code>claude_desktop_config.json</code> (או <code>config.json</code>) ופתחו אותו עם TextEdit (לחיצה ימנית ← Open With ← TextEdit)</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <div class="step-content">
+                <p><strong>החליפו את התוכן</strong></p>
+                <p>מחקו הכל והדביקו את זה — <strong>שנו את הנתיב לנתיב ה-Vault האמיתי שלכם</strong>:</p>
+                <div class="code-block-wrap"><button class="copy-btn" aria-label="העתקה"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button><div class="code-block" dir="ltr">{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "<span class="hl">/Users/yourname/Documents/yourname-vault</span>"
+      ]
+    }
+  }
+}</div></div>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">4</span>
+              <div class="step-content">
+                <p><strong>שמרו והפעילו מחדש</strong></p>
+                <p>שמרו, סגרו את Claude לגמרי ופתחו מחדש</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Windows -->
+        <div class="for-win">
+          <ol class="steps">
+            <li>
+              <span class="step-num">1</span>
+              <div class="step-content">
+                <p><strong>מצאו את קובץ ההגדרות</strong></p>
+                <p>פתחו File Explorer ← בשורת הכתובת הקלידו:</p>
+                <code>%APPDATA%\Claude</code>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <div class="step-content">
+                <p><strong>פתחו לעריכה</strong></p>
+                <p>מצאו קובץ בשם <code>claude_desktop_config.json</code> ופתחו אותו עם Notepad (לחיצה ימנית ← Open With ← Notepad)</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <div class="step-content">
+                <p><strong>החליפו את התוכן</strong></p>
+                <p>מחקו הכל והדביקו את זה — <strong>שנו את הנתיב לנתיב ה-Vault האמיתי שלכם</strong>:</p>
+                <div class="code-block-wrap"><button class="copy-btn" aria-label="העתקה"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button><div class="code-block" dir="ltr">{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "<span class="hl">C:\\Users\\yourname\\Documents\\yourname-vault</span>"
+      ]
+    }
+  }
+}</div></div>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">4</span>
+              <div class="step-content">
+                <p><strong>שמרו והפעילו מחדש</strong></p>
+                <p>שמרו, סגרו את Claude לגמרי ופתחו מחדש</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+      </div></div></div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ========== 2. TEST ========== -->
+<section class="section" id="test">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">2</span>
+      <h2>בדיקה מהירה</h2>
+    </div>
+    <p class="section-intro">נוודא שקלוד באמת רואה את הקבצים שלכם. 5 דקות.</p>
+
+    <ol class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <div class="step-content">
+          <p>הורידו את תיקיית הבדיקה</p>
+          <a href="../../resources/workshop-test.zip" class="btn" style="margin-top: 8px;" download>להורדה ←</a>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div class="step-content">
+          <p>שימו את <code>workshop-test</code> בתוך ה-Vault שיצרתם - גררו או העתיקו</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <div class="step-content">
+          <p>פתחו את Obsidian. תיקיית <code>workshop-test</code> צריכה להופיע בתוך ה-Vault</p>
+          <label class="verify-check"><input type="checkbox" class="test-check"><span>אני רואה את workshop-test ב-Obsidian</span></label>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <div class="step-content">
+          <p>פתחו את Claude, עברו ל-<strong>Code</strong>, ובחרו את תיקיית <code>workshop-test</code></p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">5</span>
+        <div class="step-content">
+          <p>כתבו לקלוד:</p>
+          <div class="code-block-wrap"><button class="copy-btn" aria-label="העתקה"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button><div class="code-block" dir="ltr">Create a new file called "test.md" with the content "It's alive!"</div></div>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">6</span>
+        <div class="step-content">
+          <p>קלוד יחשוב כמה שניות ואז יבקש אישור ליצור קובץ. אשרו.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">7</span>
+        <div class="step-content">
+          <p>חזרו ל-Obsidian. קובץ חדש בשם <code>test.md</code> אמור להופיע בתוך <code>workshop-test</code></p>
+          <label class="verify-check"><input type="checkbox" class="test-check"><span>אני רואה את test.md ב-Obsidian</span></label>
+        </div>
+      </li>
+    </ol>
+
+    <!-- Collapsible troubleshooting -->
+    <div class="card" id="troubleshoot">
+      <div class="collapsible-header">
+        <h3 style="margin-bottom: 0;">נתקעתם?</h3>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="collapsible-body"><div>
+        <table class="trouble-table" style="margin-top: 14px;">
+          <thead>
+            <tr>
+              <th>מה קרה</th>
+              <th>מה לעשות</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>קלוד לא רואה את התיקייה</td>
+              <td>וודאו שהנתיב בקובץ ההגדרות תואם לתיקיית ה-Vault</td>
+            </tr>
+            <tr>
+              <td>הקובץ לא מופיע ב-Obsidian</td>
+              <td>בדקו שה-Vault ב-Obsidian הוא אותה תיקייה שהגדרתם בחיבור</td>
+            </tr>
+            <tr>
+              <td>שגיאת חיבור</td>
+              <td>בדקו שסגרתם ופתחתם את Claude אחרי שינוי ההגדרות</td>
+            </tr>
+            <tr>
+              <td>משהו אחר</td>
+              <td><a href="mailto:danielhadar@gmail.com?subject=סדנה - נתקעתי בהתקנה" class="link">שלחו הודעה לדניאל ←</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ========== 3. SKELETON + QUESTIONNAIRE ========== -->
+<section class="section" id="skeleton">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">3</span>
+      <h2>הפרויקט שלכם</h2>
+    </div>
+    <p class="section-intro">הורידו את תיקיית השלד ופתחו ב-Obsidian. בסדנה נבנה מערכת אישית לפרויקט שלכם והתיקייה הזו היא הבסיס.</p>
+
+    <ol class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <div class="step-content">
+          <p>הורידו את תיקיית השלד</p>
+          <!-- TODO: replace with real download link -->
+          <a href="#" class="btn" style="margin-top: 8px;">להורדה ←</a>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div class="step-content">
+          <p>העבירו אותה לתוך ה-Vault ← פתחו ב-Obsidian</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="warning">
+      <strong>⚡ אל תפעילו את Claude Code בתיקייה הזו עדיין.</strong>
+      את הרגע הזה עושים ביחד בסדנה. שווה לראות אותו מקרוב.
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ========== 4. QUESTIONNAIRE ========== -->
+<section class="section" id="questionnaire">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">4</span>
+      <h2>שאלון</h2>
+    </div>
+    <p class="section-intro">ספרו על הפרויקט שלכם. קלוד ישתמש בזה כדי לבנות משהו שמתאים לכם.</p>
+
+    <ol class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <div class="step-content">
+          <p>מלאו את השאלון — לוקח בערך 15 דקות.</p>
+          <a href="../questionnaire-site/index.html" class="btn" style="margin-top: 8px;" target="_blank">לשאלון ←</a>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div class="step-content">
+          <p>בסוף תקבלו טקסט מסכם. העתיקו ושמרו אצלכם. בסדנה נשתמש בו.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ========== 5. BRAND MATERIALS ========== -->
+<section class="section" id="materials">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">5</span>
+      <h2>הכנת חומרים</h2>
+    </div>
+    <p class="section-intro">אופציונלי, <strong>אבל ההבדל יהיה דרמטי</strong>. כדי שהצוות שתבנו ידבר בשפה שלכם, הכינו כמה דוגמאות לכתיבה שלכם.</p>
+
+    <p style="margin-bottom: 10px;">אם הפרויקט שלכם הוא <strong>מותג אישי או תוכן</strong>: פוסטים מהסושיאל, מיילים ללקוחות, כתבות שפרסמתם. כל דבר שאתם גאים בו ומרגישים שמייצג את הסגנון שלכם.</p>
+    <p style="margin-bottom: 20px;">אם הפרויקט שלכם הוא <strong>חברה או מותג</strong>: ספר מותג, מצגת משקיעים, הודעות לעיתונות. כל דבר שמדבר בשפה של המותג.</p>
+
+    <div class="warning">
+      <strong>עד 5 קבצים.</strong> שמרו אותם בתיקייה נגישה מראש, אל תחכו לרגע האחרון. בסדנה נשתמש בהם.
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ========== CLOSING ========== -->
+<section class="section">
+  <div class="container">
+    <div class="closing">
+      <p><span class="hl">סיימו את כל זה לפני הסדנה.</span></p>
+      <ul class="checklist" style="text-align: right; max-width: 340px; margin: 16px auto;">
+        <li><label><input type="checkbox"><span>כל ההתקנות מוכנות</span></label></li>
+        <li><label><input type="checkbox"><span>בדיקת החיבור עברה</span></label></li>
+        <li><label><input type="checkbox"><span>תיקיית השלד פתוחה ב-Obsidian</span></label></li>
+        <li><label><input type="checkbox"><span>הטקסט מהשאלון מוכן</span></label></li>
+        <li><label><input type="checkbox"><span>חומרי מותג מוכנים (אופציונלי, אבל מומלץ)</span></label></li>
+      </ul>
+      <p><a href="mailto:danielhadar@gmail.com?subject=סדנה - נתקעתי בהתקנה" class="link">נתקעתם? שלחו הודעה לדניאל ←</a></p>
+      <p class="sub">ועוד דבר — אם ניסיתם כלי AI לפני ולא הרגשתם שזה עובד בשבילכם, זה בסדר. מה שאפשר לעשות היום שונה לגמרי ממה שהיה אפשרי לפני חצי שנה. בואו עם ראש פתוח.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">&copy; דניאל הדר 2026</div>
+</footer>
+
+<!-- ========== JS ========== -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script>
+// ---- OS Auto-Detection + Toggle ----
+(function() {
+  const platform = navigator.platform || navigator.userAgentData?.platform || '';
+  const isMac = /mac/i.test(platform);
+  document.body.dataset.os = isMac ? 'mac' : 'windows';
+
+  // Set initial active button
+  document.querySelectorAll('.os-toggle button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.os === document.body.dataset.os);
+  });
+})();
+
+document.querySelectorAll('.os-toggle button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.body.dataset.os = btn.dataset.os;
+    document.querySelectorAll('.os-toggle button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// ---- Block Expand/Collapse ----
+document.querySelectorAll('.block-header').forEach(header => {
+  header.addEventListener('click', () => {
+    header.closest('.block').classList.toggle('open');
+  });
+});
+
+// ---- Collapsible Cards ----
+document.querySelectorAll('.collapsible-header').forEach(header => {
+  header.addEventListener('click', () => {
+    header.closest('.card').classList.toggle('open');
+  });
+});
+
+// ---- Progress Nav ----
+const nav = document.getElementById('progressNav');
+const hero = document.getElementById('hero');
+const sections = document.querySelectorAll('.section[id]');
+const navLinks = document.querySelectorAll('.nav-link[data-section]');
+
+const heroObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    nav.classList.toggle('visible', !entry.isIntersecting);
+  });
+}, { threshold: 0 });
+
+heroObserver.observe(hero);
+
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const link = document.querySelector(`.nav-link[data-section="${entry.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '-60px 0px -40% 0px' });
+
+sections.forEach(s => sectionObserver.observe(s));
+
+navLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// ---- Checklist Confetti ----
+(function() {
+  const checks = document.querySelectorAll('.checklist input[type="checkbox"]');
+  let wasFull = false;
+  checks.forEach(cb => {
+    cb.addEventListener('change', () => {
+      const allChecked = [...checks].every(c => c.checked);
+      if (allChecked && !wasFull) celebrate();
+      wasFull = allChecked;
+    });
+  });
+
+  function celebrate() {
+    const colors = ['#C4704B', '#E5A07A', '#7EC87E', '#5BA4D9', '#E8C547', '#D46BAF'];
+    const d = { colors, disableForReducedMotion: true, zIndex: 9999 };
+
+    function bottom(angle, x, n) { confetti({ ...d, particleCount: n||60, angle, spread: 55, startVelocity: 60, origin: { x, y: 1 } }); }
+    function side(angle, x, y) { confetti({ ...d, particleCount: 50, angle, spread: 50, startVelocity: 55, origin: { x, y } }); }
+
+    // Wave 1 — bottom left + right + center
+    bottom(60, 0); bottom(120, 1);
+    bottom(90, 0.5, 50);
+
+    // Wave 1 — mid-screen sides (angled upward)
+    side(45, 0, 0.5);
+    side(135, 1, 0.5);
+
+    // Wave 2 — bottom spread + sides
+    setTimeout(() => { bottom(55, 0); bottom(125, 1); }, 200);
+    setTimeout(() => { side(55, 0, 0.4); side(125, 1, 0.4); }, 250);
+    setTimeout(() => { bottom(90, 0.35, 40); bottom(90, 0.65, 40); }, 250);
+
+    // Wave 3 — big side cannons + bottom
+    setTimeout(() => { bottom(50, 0); bottom(130, 1); }, 450);
+    setTimeout(() => { side(40, 0, 0.6); side(140, 1, 0.6); }, 500);
+    setTimeout(() => bottom(90, 0.5, 60), 500);
+
+    // Wave 4 — everything
+    setTimeout(() => {
+      bottom(65, 0); bottom(115, 1);
+      bottom(80, 0.2, 50); bottom(100, 0.8, 50);
+      side(50, 0, 0.45); side(130, 1, 0.45);
+    }, 700);
+  }
+})();
+
+// ---- Test Section Fireworks (Confetti) ----
+(function() {
+  const testChecks = document.querySelectorAll('.test-check');
+  if (!testChecks.length) return;
+
+  testChecks.forEach(cb => {
+    cb.addEventListener('change', () => {
+      const allChecked = [...testChecks].every(c => c.checked);
+      if (allChecked) testCelebrate();
+    });
+  });
+
+  function testCelebrate() {
+    const colors = ['#FF6B3D', '#FFD93D', '#FF3D7F', '#3DC7FF', '#A0FF3D', '#FF3D3D', '#FFB03D', '#C73DFF'];
+    const d = { colors, disableForReducedMotion: true, zIndex: 9999, ticks: 120, gravity: 1.2 };
+
+    function burst(x, y, count, spread, vel) {
+      confetti({ ...d, particleCount: count, spread, startVelocity: vel, origin: { x, y } });
+    }
+
+    burst(0.5, 0.45, 80, 360, 45);
+    setTimeout(() => { burst(0.15, 0.7, 50, 70, 55); burst(0.85, 0.7, 50, 70, 55); }, 150);
+    setTimeout(() => { burst(0.3, 0, 40, 120, 40); burst(0.7, 0, 40, 120, 40); }, 300);
+    setTimeout(() => { burst(0, 0.4, 45, 60, 50); burst(1, 0.4, 45, 60, 50); }, 450);
+    setTimeout(() => burst(0.5, 0.5, 100, 360, 50), 600);
+    setTimeout(() => { burst(0.1, 0.3, 35, 80, 45); burst(0.9, 0.3, 35, 80, 45); burst(0.5, 0.2, 50, 200, 35); }, 800);
+    setTimeout(() => { burst(0.3, 0.5, 30, 360, 30); burst(0.7, 0.5, 30, 360, 30); }, 1000);
+  }
+})();
+
+// ---- Copy Code Blocks ----
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const block = btn.closest('.code-block-wrap').querySelector('.code-block');
+    const text = block.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.classList.add('copied');
+      btn.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> הועתק';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = '<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+      }, 1500);
+    });
+  });
+});
+</script>
+
+</body>
+</html>

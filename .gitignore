@@ -1,0 +1,19 @@
+# Ignore everything
+*
+
+# Allow root files
+!.gitignore
+!index.html
+
+# Allow participant guide
+!materials/
+!materials/participant-guide-site/
+!materials/participant-guide-site/index.html
+
+# Allow questionnaire
+!materials/questionnaire-site/
+!materials/questionnaire-site/index.html
+
+# Allow resources
+!resources/
+!resources/workshop-test.zip
