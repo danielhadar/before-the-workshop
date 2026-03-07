@@ -18,3 +18,4 @@
 # Allow resources
 !resources/
 !resources/workshop-test.zip
+!resources/project-seed.zip
