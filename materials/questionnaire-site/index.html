@@ -102,6 +102,15 @@ a { color: var(--accent); }
 .nav-dot.filled { border-color: var(--success); color: var(--success); background: rgba(126, 200, 126, 0.1); }
 .nav-dot.filled.active { background: var(--accent); color: var(--surface); border-color: var(--accent); }
 
+/* ====== NAV SEPARATORS ====== */
+.nav-sep {
+  width: 1px;
+  height: 16px;
+  background: var(--border);
+  flex-shrink: 0;
+  margin: 0 4px;
+}
+
 /* ====== HERO ====== */
 .hero {
   padding: 100px 0 40px;
@@ -136,9 +145,13 @@ a { color: var(--accent); }
 .hero .subtitle {
   font-size: 17px;
   color: var(--text-secondary);
-  max-width: 520px;
+  max-width: 540px;
   margin: 0 auto;
   line-height: 1.75;
+}
+
+.hero .subtitle-second {
+  margin-top: 8px;
 }
 
 .hero-meta {
@@ -155,6 +168,31 @@ a { color: var(--accent); }
   stroke: var(--text-muted);
   fill: none;
   stroke-width: 2;
+}
+
+/* ====== SECTION BREAKS ====== */
+.section-break {
+  text-align: center;
+  padding: 48px 0 12px;
+}
+
+.section-break .container {
+  max-width: 680px;
+}
+
+.section-title {
+  font-family: 'Alef', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.75;
 }
 
 /* ====== DIVIDER ====== */
@@ -245,8 +283,9 @@ a { color: var(--accent); }
 /* ====== CHECKBOX LIST ====== */
 .q-checkboxes {
   list-style: none;
-  margin: 0 0 8px;
+  margin: 0;
 }
+
 
 .q-checkboxes li {
   border-bottom: 1px solid var(--border);
@@ -494,6 +533,9 @@ footer {
 @media (max-width: 600px) {
   .hero { padding: 80px 0 32px; }
   .hero h1 { font-size: 34px; }
+  .hero .subtitle { max-width: 100%; }
+  .section-break { padding: 36px 0 8px; }
+  .section-title { font-size: 26px; }
   .question-num { font-size: 36px; }
   .question-header h2 { font-size: 20px; }
   .question-card { padding: 20px 16px; }
@@ -502,6 +544,7 @@ footer {
   .summary-output { padding: 16px; }
   .summary-output pre { font-size: 14px; }
   .nav-dot { width: 26px; height: 26px; font-size: 12px; }
+  .nav-sep { height: 14px; margin: 0 2px; }
 }
 </style>
 </head>
@@ -516,8 +559,10 @@ footer {
     <a href="#q4" class="nav-dot" data-q="4">4</a>
     <a href="#q5" class="nav-dot" data-q="5">5</a>
     <a href="#q6" class="nav-dot" data-q="6">6</a>
+    <span class="nav-sep"></span>
     <a href="#q7" class="nav-dot" data-q="7">7</a>
     <a href="#q8" class="nav-dot" data-q="8">8</a>
+    <span class="nav-sep"></span>
     <a href="#q9" class="nav-dot" data-q="9">9</a>
     <a href="#q10" class="nav-dot" data-q="10">10</a>
   </div>
@@ -543,7 +588,8 @@ footer {
     </svg>
     <span class="hero-label">לפני הסדנה</span>
     <h1>שאלון הכנה</h1>
-    <p class="subtitle">10 שאלות. כל מה שתבנו בסדנה מתחיל מפה - אז ככל שתהיו יותר ספציפיים, ככה הצוות שתקבלו יבין אתכם טוב יותר.</p>
+    <p class="subtitle">בסדנה תבנו צוות שעובד על פרויקט אמיתי שלכם.<br>חשבו על מה שאתם עושים, ובחרו דבר אחד ספציפי שתרצו לקדם - משהו שאפשר באמת לשבת עליו ולעשות עבודה.</p>
+    <p class="subtitle subtitle-second">ככל שהתשובות יהיו יותר ספציפיות, ככה הצוות שתקבלו יבין אתכם טוב יותר.</p>
     <span class="hero-meta">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       <span dir="ltr">15–20</span> דקות
@@ -551,7 +597,13 @@ footer {
   </div>
 </header>
 
-<hr class="divider">
+<!-- ========== SECTION 1: הפרויקט ========== -->
+<div class="section-break">
+  <div class="container">
+    <h2 class="section-title">הפרויקט</h2>
+    <p class="section-subtitle">הפרויקט שסביבו תבנו את הצוות</p>
+  </div>
+</div>
 
 <!-- ========== Q1 ========== -->
 <section class="question" id="q1">
@@ -559,10 +611,10 @@ footer {
     <div class="question-card">
       <div class="question-header">
         <span class="question-num">1</span>
-        <h2>מה אתם עושים?</h2>
+        <h2>מה הפרויקט שאתם מתכננים לעבוד עליו בסדנה?</h2>
       </div>
-      <p class="question-hint">תארו את העסק, המוצר או הפרויקט שלכם במשפט אחד, בלי לחשוב על זה יותר מדי</p>
-      <textarea class="q-textarea" data-q="1" rows="3" placeholder="למשל: ״סטודיו לעיצוב גרפי למסעדות״, ״בונה אפליקציה לשיתוף מסלולי טיולים״ או ״בונה קורס אונליין לליקוט פטריות בר״"></textarea>
+      <p class="question-hint">ספרו בקצרה מה אתם עושים, ואיזה דבר ספציפי בתוך זה אתם רוצים לקדם</p>
+      <textarea class="q-textarea" data-q="1" rows="3" placeholder="למשל: ״סטודיו לעיצוב, רוצה להקים אינסטגרם מקצועי״ או ״בונה קורס אונליין לצילום״"></textarea>
     </div>
   </div>
 </section>
@@ -573,9 +625,8 @@ footer {
     <div class="question-card">
       <div class="question-header">
         <span class="question-num">2</span>
-        <h2>מה סוג העבודה?</h2>
+        <h2>מה סוג העבודה שהפרויקט דורש?</h2>
       </div>
-      <p class="question-hint">סמנו מה שרלוונטי, או תכתבו משלכם</p>
       <ul class="q-checkboxes" data-q="2">
         <li><label><input type="checkbox" value="בניית תוכנה"><span>בניית תוכנה</span></label></li>
         <li><label><input type="checkbox" value="בניית מותג ו/או כתיבת תוכן (פוסטים, מאמרים, ניוזלטר)"><span>בניית מותג ו/או כתיבת תוכן (פוסטים, מאמרים, ניוזלטר)</span></label></li>
@@ -587,7 +638,7 @@ footer {
           <input type="text" class="q-other-input" data-other="2" placeholder="מה למשל?">
         </li>
       </ul>
-      <div class="q-notice"><strong>רק שתדעו:</strong> אפשר לסמן כמה. בסדנה נתמקד בכיוון אחד, אז שווה לבחור פרויקט שאפשר לסגור</div>
+      <div class="q-notice"><strong>רק שתדעו:</strong> אפשר לסמן כמה</div>
     </div>
   </div>
 </section>
@@ -598,10 +649,10 @@ footer {
     <div class="question-card">
       <div class="question-header">
         <span class="question-num">3</span>
-        <h2>מה המצב הנוכחי של הפרויקט?</h2>
+        <h2>איפה הפרויקט עומד עכשיו?</h2>
       </div>
-      <p class="question-hint">יש כבר אתר? חשבון אינסטגרם עם תוכן? קוד שכתבתם? מסמכים עם רעיונות? או שמתחילים מאפס?</p>
-      <textarea class="q-textarea" data-q="3" rows="4" placeholder="למשל: ״רק רעיון על מפית״, ״יש אתר ישן שצריך שדרוג״ או ״50 לקוחות ואין מערכת״"></textarea>
+      <p class="question-hint">יש כבר משהו? אתר, תוכן, קוד, מסמכים, לקוחות? או שמתחילים מאפס?</p>
+      <textarea class="q-textarea" data-q="3" rows="4" placeholder="למשל: ״רק רעיון על מפית״, ״יש אתר ישן שצריך שדרוג״ או ״50 לקוחות ואין מערכת נורמלית״"></textarea>
     </div>
   </div>
 </section>
@@ -612,9 +663,9 @@ footer {
     <div class="question-card">
       <div class="question-header">
         <span class="question-num">4</span>
-        <h2>מה תוקע את הפרויקט הזה?</h2>
+        <h2>מה מונע ממנו להתקדם כמו שהייתם רוצים?</h2>
       </div>
-      <p class="question-hint">הדבר שבגללו הפרויקט לא מתקדם כמו שהייתם רוצים - מה שאתם דוחים, מה שלא ברור, מה שמרגיש תקוע</p>
+      <p class="question-hint">מה שאתם דוחים, מה שלא ברור, מה שמרגיש תקוע</p>
       <textarea class="q-textarea" data-q="4" rows="4" placeholder="למשל: ״הכל בראש ושום דבר על הנייר״ או ״אין לי זמן לשבת על זה ברצינות״"></textarea>
     </div>
   </div>
@@ -626,9 +677,9 @@ footer {
     <div class="question-card">
       <div class="question-header">
         <span class="question-num">5</span>
-        <h2>מתי תגידו "זה עובד"?</h2>
+        <h2>מתי תגידו שהפרויקט הזה באמת זז?</h2>
       </div>
-      <p class="question-hint">תארו תוצאה מוחשית, לא חזון ערטילאי</p>
+      <p class="question-hint">תארו תוצאה מוחשית, משהו שתוכלו להצביע עליו ולהגיד ״הנה, זה קרה״</p>
       <textarea class="q-textarea" data-q="5" rows="3" placeholder="למשל: ״לקוח ראשון שמשלם״, ״אתר שאפשר לשלוח ללקוחות״ או ״3 פוסטים בשבוע שנשמעים כמוני״"></textarea>
     </div>
   </div>
@@ -640,13 +691,21 @@ footer {
     <div class="question-card">
       <div class="question-header">
         <span class="question-num">6</span>
-        <h2>מי קהל היעד שלכם?</h2>
+        <h2>מי קהל היעד של הפרויקט הזה?</h2>
       </div>
-      <p class="question-hint">היו ספציפיים ככל האפשר</p>
+      <p class="question-hint">היו ספציפיים ככל האפשר - ככה הצוות ידע למי הוא פונה</p>
       <textarea class="q-textarea" data-q="6" rows="3" placeholder="למשל: ״הורים לילדים בגיל בית ספר״, ״פרילנסרים בתחילת הדרך״ או ״בעלי מסעדות״"></textarea>
     </div>
   </div>
 </section>
+
+<!-- ========== SECTION 2: הסגנון ========== -->
+<div class="section-break">
+  <div class="container">
+    <h2 class="section-title">הסגנון</h2>
+    <p class="section-subtitle">עוזר לצוות להבין לא רק מה לבנות, אלא איך זה צריך להרגיש</p>
+  </div>
+</div>
 
 <!-- ========== Q7 ========== -->
 <section class="question" id="q7">
@@ -654,18 +713,10 @@ footer {
     <div class="question-card">
       <div class="question-header">
         <span class="question-num">7</span>
-        <h2>איך אתם אוהבים לעבוד?</h2>
+        <h2>מה נחשב טוב בעיניכם?</h2>
       </div>
-      <ul class="q-checkboxes" data-q="7">
-        <li><label><input type="checkbox" value="לזוז מהר, לשחרר, ללטש אחר כך"><span>לזוז מהר, לשחרר, ללטש אחר כך</span></label></li>
-        <li><label><input type="checkbox" value="לתכנן הכל לפני שנוגעים"><span>לתכנן הכל לפני שנוגעים</span></label></li>
-        <li><label><input type="checkbox" value="שמישהו יאתגר לנו את החשיבה"><span>שמישהו יאתגר לנו את החשיבה</span></label></li>
-        <li><label><input type="checkbox" value="שמישהו יעשה מה שאנחנו אומרים, חלק ובלי שאלות"><span>שמישהו יעשה מה שאנחנו אומרים, חלק ובלי שאלות</span></label></li>
-        <li>
-          <label><input type="checkbox" value="other" class="other-trigger"><span>משהו אחר</span></label>
-          <input type="text" class="q-other-input" data-other="7" placeholder="מה למשל?">
-        </li>
-      </ul>
+      <p class="question-hint">תנו דוגמאות לאנשים, מותגים, או עבודות שאתם מעריכים - כאלה שהסגנון, הגישה, או האיכות שלהם מייצגים משהו שהייתם רוצים שהפרויקט שלכם ירגיש כמוהו. זה יכול להיות כמעט כל דבר</p>
+      <textarea class="q-textarea" data-q="7" rows="4" placeholder="למשל: ״חוויית המשתמש של דואלינגו״, ״הקופי של ׳כאן 11׳״ או ״הפוסטים של איה כורם בפייסבוק״"></textarea>
     </div>
   </div>
 </section>
@@ -676,13 +727,21 @@ footer {
     <div class="question-card">
       <div class="question-header">
         <span class="question-num">8</span>
-        <h2>מה נחשב טוב בעיניכם?</h2>
+        <h2>ומה פחות אתם?</h2>
       </div>
-      <p class="question-hint">תנו דוגמאות לאנשים, מותגים, או עבודות שאתם מעריכים - כאלה שהסגנון, הגישה, או האיכות שלהם מייצגים משהו שהייתם רוצים שהפרויקט שלכם ירגיש כמוהו. זה יכול להיות כמעט כל דבר</p>
-      <textarea class="q-textarea" data-q="8" rows="4" placeholder="למשל: ״חוויית המשתמש של דואלינגו״, ״הקופי של ׳כאן 11׳״ או ״הפוסטים של איה כורם בפייסבוק״"></textarea>
+      <p class="question-hint">סגנונות, גישות, או תכונות שמגרדות לכם - דברים שהפרויקט שלכם לעולם לא יהיה</p>
+      <textarea class="q-textarea" data-q="8" rows="3" placeholder="למשל: ״פורמלי מדי״, ״שיווקי-אגרסיבי״ או ״סרקסטי״"></textarea>
     </div>
   </div>
 </section>
+
+<!-- ========== SECTION 3: אתם ========== -->
+<div class="section-break">
+  <div class="container">
+    <h2 class="section-title">אתם</h2>
+    <p class="section-subtitle">ככה הצוות ידע איך לעבוד איתכם</p>
+  </div>
+</div>
 
 <!-- ========== Q9 ========== -->
 <section class="question" id="q9">
@@ -690,10 +749,18 @@ footer {
     <div class="question-card">
       <div class="question-header">
         <span class="question-num">9</span>
-        <h2>מה אתם לא?</h2>
+        <h2>איך אתם אוהבים לעבוד?</h2>
       </div>
-      <p class="question-hint">תנו דוגמאות לדברים שהמותג או הפרויקט שלכם לעולם לא יהיה - סגנונות, גישות, או תכונות שמגרדות לכם</p>
-      <textarea class="q-textarea" data-q="9" rows="3" placeholder="למשל: ״פורמלי מדי״, ״שיווקי-אגרסיבי״ או ״סרקסטי״"></textarea>
+      <ul class="q-checkboxes" data-q="9">
+        <li><label><input type="checkbox" value="אני אוהב/ת לראות תוצאות מהר, גם אם זה לא מושלם"><span>אני אוהב/ת לראות תוצאות מהר, גם אם זה לא מושלם</span></label></li>
+        <li><label><input type="checkbox" value="אני רוצה להבין כל החלטה לפני שממשיכים"><span>אני רוצה להבין כל החלטה לפני שממשיכים</span></label></li>
+        <li><label><input type="checkbox" value="אני אוהב/ת שמפתיעים אותי - שמביאים רעיונות שלא חשבתי עליהם"><span>אני אוהב/ת שמפתיעים אותי - שמביאים רעיונות שלא חשבתי עליהם</span></label></li>
+        <li><label><input type="checkbox" value="אני אוהב/ת שעושים מה שאני אומר/ת, בלי לסבך"><span>אני אוהב/ת שעושים מה שאני אומר/ת, בלי לסבך</span></label></li>
+        <li>
+          <label><input type="checkbox" value="other" class="other-trigger"><span>משהו אחר</span></label>
+          <input type="text" class="q-other-input" data-other="9" placeholder="מה למשל?">
+        </li>
+      </ul>
     </div>
   </div>
 </section>
@@ -851,15 +918,15 @@ const summarySection = document.getElementById('summarySection');
 const summaryText = document.getElementById('summaryText');
 
 const questionTitles = {
-  1: 'מה אתם עושים?',
-  2: 'מה סוג העבודה?',
-  3: 'מה המצב הנוכחי של הפרויקט?',
-  4: 'מה תוקע את הפרויקט הזה?',
-  5: 'מתי תגידו "זה עובד"?',
-  6: 'מי קהל היעד שלכם?',
-  7: 'איך אתם אוהבים לעבוד?',
-  8: 'מה נחשב טוב בעיניכם?',
-  9: 'מה אתם לא?',
+  1: 'מה הפרויקט שאתם מתכננים לעבוד עליו בסדנה?',
+  2: 'מה סוג העבודה שהפרויקט דורש?',
+  3: 'איפה הפרויקט עומד עכשיו?',
+  4: 'מה מונע ממנו להתקדם כמו שהייתם רוצים?',
+  5: 'מתי תגידו שהפרויקט הזה באמת זז?',
+  6: 'מי קהל היעד של הפרויקט הזה?',
+  7: 'מה נחשב טוב בעיניכם?',
+  8: 'ומה פחות אתם?',
+  9: 'איך אתם אוהבים לעבוד?',
   10: 'עוד משהו שחשוב לכם?'
 };
 
