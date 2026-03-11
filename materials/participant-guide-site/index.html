@@ -1003,100 +1003,6 @@ footer {
       </div></div></div>
     </div>
 
-    <!-- ===== BLOCK: Connection ===== -->
-    <div class="block" id="block-connection">
-      <div class="block-header">
-        <div class="block-icon">🔗</div>
-        <div class="block-info">
-          <h3>חיבור</h3>
-          <p>לגרום לקלוד לראות את הקבצים שלכם ב-Obsidian</p>
-        </div>
-        <svg class="block-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="block-body"><div class="block-body-inner"><div class="block-content">
-
-        <!-- Mac -->
-        <div class="for-mac">
-          <ol class="steps">
-            <li>
-              <span class="step-num">1</span>
-              <div class="step-content">
-                <p><strong>פתחו את קובץ ההגדרות</strong></p>
-                <p>פתחו את Claude Desktop, לחצו על <strong>Settings</strong> (⚙️), בחרו <strong>Developer</strong>, ולחצו על <strong>Edit Config</strong></p>
-                <p class="hint">זה יפתח את קובץ ההגדרות בעורך טקסט</p>
-              </div>
-            </li>
-            <li>
-              <span class="step-num">2</span>
-              <div class="step-content">
-                <p><strong>החליפו את התוכן</strong></p>
-                <p>מחקו הכל והדביקו את זה — <strong>שנו את הנתיב לנתיב ה-Vault האמיתי שלכם</strong>:</p>
-                <div class="code-block-wrap"><button class="copy-btn" aria-label="העתקה"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button><div class="code-block" dir="ltr">{
-  "mcpServers": {
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "<span class="hl">/Users/yourname/Documents/yourname-vault</span>"
-      ]
-    }
-  }
-}</div></div>
-              </div>
-            </li>
-            <li>
-              <span class="step-num">3</span>
-              <div class="step-content">
-                <p><strong>שמרו והפעילו מחדש</strong></p>
-                <p>שמרו, סגרו את Claude לגמרי ופתחו מחדש</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-
-        <!-- Windows -->
-        <div class="for-win">
-          <ol class="steps">
-            <li>
-              <span class="step-num">1</span>
-              <div class="step-content">
-                <p><strong>פתחו את קובץ ההגדרות</strong></p>
-                <p>פתחו את Claude Desktop, לחצו על <strong>Settings</strong> (⚙️), בחרו <strong>Developer</strong>, ולחצו על <strong>Edit Config</strong></p>
-                <p class="hint">זה יפתח את קובץ ההגדרות בעורך טקסט</p>
-              </div>
-            </li>
-            <li>
-              <span class="step-num">2</span>
-              <div class="step-content">
-                <p><strong>החליפו את התוכן</strong></p>
-                <p>מחקו הכל והדביקו את זה — <strong>שנו את הנתיב לנתיב ה-Vault האמיתי שלכם</strong>:</p>
-                <div class="code-block-wrap"><button class="copy-btn" aria-label="העתקה"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button><div class="code-block" dir="ltr">{
-  "mcpServers": {
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "<span class="hl">C:\\Users\\yourname\\Documents\\yourname-vault</span>"
-      ]
-    }
-  }
-}</div></div>
-              </div>
-            </li>
-            <li>
-              <span class="step-num">3</span>
-              <div class="step-content">
-                <p><strong>שמרו והפעילו מחדש</strong></p>
-                <p>שמרו, סגרו את Claude לגמרי ופתחו מחדש</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-
-      </div></div></div>
-    </div>
 
   </div>
 </section>
@@ -1180,15 +1086,11 @@ footer {
           <tbody>
             <tr>
               <td>קלוד לא רואה את התיקייה</td>
-              <td>וודאו שהנתיב בקובץ ההגדרות תואם לתיקיית ה-Vault</td>
+              <td>וודאו שבחרתם את התיקייה הנכונה בטאב Code</td>
             </tr>
             <tr>
               <td>הקובץ לא מופיע ב-Obsidian</td>
-              <td>בדקו שה-Vault ב-Obsidian הוא אותה תיקייה שהגדרתם בחיבור</td>
-            </tr>
-            <tr>
-              <td>שגיאת חיבור</td>
-              <td>בדקו שסגרתם ופתחתם את Claude אחרי שינוי ההגדרות</td>
+              <td>בדקו שה-Vault ב-Obsidian הוא אותה תיקייה שבחרתם בקלוד</td>
             </tr>
             <tr>
               <td>משהו אחר</td>
@@ -1294,7 +1196,7 @@ footer {
       <p><span class="hl">סיימו את כל זה לפני הסדנה.</span></p>
       <ul class="checklist" style="text-align: right; max-width: 340px; margin: 16px auto;">
         <li><label><input type="checkbox"><span>כל ההתקנות מוכנות</span></label></li>
-        <li><label><input type="checkbox"><span>בדיקת החיבור עברה</span></label></li>
+        <li><label><input type="checkbox"><span>הבדיקה המהירה עברה</span></label></li>
         <li><label><input type="checkbox"><span>תיקיית השלד פתוחה ב-Obsidian</span></label></li>
         <li><label><input type="checkbox"><span>הטקסט מהשאלון מוכן</span></label></li>
         <li><label><input type="checkbox"><span>חומרי מותג מוכנים (אופציונלי, אבל מומלץ)</span></label></li>
