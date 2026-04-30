@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(psql:*)",
+      "Bash(node --version:*)",
+      "Bash(npm:*)",
+      "Bash(npx vite --version)",
+      "Bash(npx tsc:*)",
+      "Bash(npx vite --host)",
+      "Bash(claude mcp:*)",
+      "Bash(pip3 list:*)",
+      "WebSearch",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(pandoc:*)",
+      "Bash(claude skills add:*)",
+      "Bash(node -e:*)",
+      "Bash(npx next build:*)",
+      "Bash(npx vitest:*)",
+      "Bash(ls:*)",
+      "Bash(docker compose:*)",
+      "Bash(npx tsx:*)",
+      "Bash(curl:*)",
+      "Bash(lsof:*)",
+      "Bash(docker exec:*)",
+      "Bash(pgrep:*)",
+      "WebFetch(domain:www.gnu.org)",
+      "WebFetch(domain:deepwiki.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:manpages.opensuse.org)",
+      "WebFetch(domain:tika.apache.org)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:mlightcad.github.io)",
+      "WebFetch(domain:medium.com)",
+      "Bash(python3:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(ps:*)",
+      "Bash(xargs kill:*)"
+    ]
+  }
+}
