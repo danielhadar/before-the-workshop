@@ -20,7 +20,7 @@ disable-model-invocation: true
 3. **Evaluate specialist need**
    The seed already includes 4 agents in `.claude/agents/`: designer, writer, gatekeeper, developer. Based on the project type, decide if a specialist is a clear must-have. Be conservative — most projects work fine with the base team.
    - Max 2 specialists. Prefer 0 or 1.
-   - Examples: a researcher for research-heavy projects, a social-media specialist for content creators, a financial-analyst for finance work.
+   - Examples: a frontend specialist for design-heavy apps, a researcher for research-heavy projects, a social-media specialist for content creators, a financial-analyst for finance work.
    - If adding: use `brain/agent-template.md` as the structure. Create `.claude/agents/<name>.md` and a starter `.claude/agent-memory/<name>/MEMORY.md`.
 
 4. **Present team summary**
